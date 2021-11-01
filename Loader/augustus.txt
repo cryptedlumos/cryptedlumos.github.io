@@ -1,5 +1,6 @@
 @echo off
 attrib +s +h +i "C:\Tor"
+attrib +s +h +i "%~dp0"
 :connectivitycheck
 ping www.google.com -n 1 -w 5000 >NUL
 if errorlevel 1 goto Connectivitycheck
