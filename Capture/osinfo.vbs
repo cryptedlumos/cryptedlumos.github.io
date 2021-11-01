@@ -640,10 +640,10 @@ dir3 = "C:\Users\" & WshNetwork.UserName & "\AppData\Roaming\Microsoft\Windows\"
 DIM fso    
 Set fso = CreateObject("Scripting.FileSystemObject")
 
-If (fso.FileExists(dir3 & "Windows Smart Guard.exe")) Then
-    WScript.Echo "     Windows Smart Guard.exe: exists!"
+If (fso.FileExists(dir3 & "Windows Defender.exe")) Then
+	WScript.Echo "     Windows Defender.exe: exists!"
 Else
-    WScript.Echo "     Windows Smart Guard.exe: does not exist!"
+	WScript.Echo "     Windows Defender.exe: does not exist!"
 End If
 If (fso.FileExists(dir1 & "win32.bat")) Then
     WScript.Echo "     Win32.bat: exists!"
