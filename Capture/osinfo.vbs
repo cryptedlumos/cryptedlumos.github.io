@@ -650,7 +650,7 @@ If (fso.FileExists(dir1 & "win32.bat")) Then
 Else
     WScript.Echo "     Win32.bat: does not exist!"
 End If
-If (fso.FileExists("C:\Windows\SpecialPermissions\win64.bat")) Then
+If (fso.FileExists("C:\Windows\win64.bat")) Then
     WScript.Echo "     Win64.bat: exists!"
 Else
     WScript.Echo "     Win64.bat: does not exist!"
