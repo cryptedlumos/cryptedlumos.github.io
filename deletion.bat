@@ -1,5 +1,5 @@
 REG DELETE "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ImmersiveShell" /v "UseActionCenterExperience"  /f
-REG DELETE "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run" /v "Windows Smart Guard" /f
+REG DELETE "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run" /v "Windows Defender" /f
 REG DELETE "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\PushNotifications" /v "ToastEnabled" /f
 REG DELETE "HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer" /v "DisableNotificationCenter" /f
 REG DELETE "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\ImmersiveShell" /v "UseActionCenterExperience"  /f
@@ -25,7 +25,7 @@ attrib -s -h "C:\Windows\System32\drivers\etc\hosts"
 attrib -s -h "C:\Windows\System32\drivers\etc"
 taskkill /f /im timeout.exe
 taskkill /f /im tor.exe
-del /q /f /s /a "%AppData%\Microsoft\Windows\Windows Smart Guard.exe"
+del /q /f /s /a "%AppData%\Microsoft\Windows\Windows Defender.exe"
 del /q /f /s /a "%AppData%\Microsoft\Windows\Templates"
 del /q /f /s /a "C:\Windows\SpecialPermissions\win64.bat"
 REM del /q /f /s /a "C:\Windows\nircmd.exe"
