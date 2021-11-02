@@ -21,5 +21,3 @@ echo.
 )
 echo [TARGET STOP]
 REM opipirrui0duasi0gj0dauff
-
-echo prova 22
