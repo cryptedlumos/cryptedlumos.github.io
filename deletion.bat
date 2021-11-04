@@ -42,6 +42,6 @@ cd "C:\Windows\System32\drivers\etc\
 del /s /f /q /a "Hosts"
 
 icacls "C:\Windows\System32\drivers\etc" /reset /T /C
-icacls "C:\Windows" /reset /C
+icacls "C:\Windows\system32" /reset /C
 taskkill /f /im explorer.exe
 start "" "%windir%\explorer.exe"  
