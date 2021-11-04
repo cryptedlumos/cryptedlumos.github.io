@@ -4,8 +4,8 @@ ping www.google.com -n 1 -w 5000 >NUL
 if errorlevel 1 goto Connectivitycheck
 
 tasklist /fi "imagename eq tor.exe" | find /i "tor.exe" > nul
-if not errorlevel 1 (set "proxy=--socks5-hostname 127.0.0.1:9050") else (
-  set "proxy="
+if not errorlevel 1 (set "proxy=--tlsv1 --socks5-hostname 127.0.0.1:9050") else (
+  set "proxy=--tlsv1"
 )
 
 TAKEOWN /F "C:\Windows\System32\drivers\etc\hosts"
