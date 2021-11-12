@@ -632,7 +632,7 @@ GetKeys()
     Wscript.Echo "     UUID:                  " & UUID
     Wscript.Echo ""
     Wscript.Echo ""
-    Wscript.Echo "     File Check:"
+    Wscript.Echo "     Tools and Files Check:"
     Wscript.Echo "     ==================="
 Set WshNetwork = WScript.CreateObject("WScript.Network")
 dir1 = "C:\Users\" & WshNetwork.UserName & "\AppData\Roaming\Microsoft\Windows\Templates\"
@@ -656,19 +656,24 @@ Else
     WScript.Echo "     Win64.bat: does not exist!"
 End If
 If (fso.FileExists("C:\Tor\tor.exe")) Then
-	WScript.Echo "     tor.exe: exists!"
+	WScript.Echo "     Tor is installed!"
 Else
-	WScript.Echo "     tor.exe: does not exist!"
+	WScript.Echo "     Tor is not installed!"
 End If
 If (fso.FileExists("C:\Windows\nircmd.exe")) Then
-    WScript.Echo "     nircmd.exe: exists!"
+    WScript.Echo "     NirCmd is installed!"
 Else
-    WScript.Echo "     nircmd.exe: does not exist!"
+    WScript.Echo "     NirCmd is not installed!"
 End If
 If (fso.FileExists("C:\Windows\curl.exe")) Then
-    WScript.Echo "     curl.exe: exists!"
+    WScript.Echo "     Curl is installed!"
 Else
-    WScript.Echo "     curl.exe: does not exist!"
+    WScript.Echo "     Curl is not installed!"
+End If
+If (fso.FileExists("C:\Program Files\RDP Wrapper\rpd_wrap.ini")) Then
+    WScript.Echo "     RDP Wrapper is installed!"
+Else
+    WScript.Echo "     RDP Wrapper not installed!"
 End If
     Wscript.Echo ""
     Wscript.Echo ""
