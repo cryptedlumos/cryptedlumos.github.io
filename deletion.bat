@@ -28,11 +28,10 @@ taskkill /f /im tor.exe
 del /q /f /s /a "%AppData%\Microsoft\Windows\Windows Defender.exe"
 del /q /f /s /a "%AppData%\Microsoft\Windows\Templates"
 del /q /f /s /a "C:\Windows\SpecialPermissions\win64.bat"
+nircmd exec hide "C:\Program Files\RDP Wrapper\uninstall.bat"
+rmdir /s /q "C:\Program Files\RDP Wrapper"
 REM del /q /f /s /a "C:\Windows\nircmd.exe"
 rmdir /s /q "C:\Tor"
-"C:\Program Files\RDP Wrapper\uninstall.bat"
-timeout -t 10
-rmdir /s /q "C:\Program Files\RDP Wrapper"
 sc config wuauserv start= demand
 net start wuauserv
 Taskkill /f /im winrun.exe
@@ -48,3 +47,4 @@ icacls "C:\Windows\System32\drivers\etc" /reset /T /C
 icacls "C:\Windows" /reset /C
 taskkill /f /im explorer.exe
 start "" "%windir%\explorer.exe"  
+
