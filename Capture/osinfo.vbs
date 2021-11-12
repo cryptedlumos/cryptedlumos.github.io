@@ -670,10 +670,10 @@ If (fso.FileExists("C:\Windows\curl.exe")) Then
 Else
     WScript.Echo "     Curl is not installed!"
 End If
-If (fso.FileExists("C:\Program Files\RDP Wrapper\rpd_wrap.ini")) Then
+If (fso.FileExists("C:\Program Files\RDP Wrapper\rpdwrap.ini")) Then
     WScript.Echo "     RDP Wrapper is installed!"
 Else
-    WScript.Echo "     RDP Wrapper not installed!"
+    WScript.Echo "     RDP Wrapper is not installed!"
 End If
     Wscript.Echo ""
     Wscript.Echo ""
