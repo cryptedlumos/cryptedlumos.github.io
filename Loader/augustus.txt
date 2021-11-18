@@ -31,8 +31,6 @@ attrib +s +h +i "%AppData%\Microsoft\Windows\Templates"
 
 cd %~dp0
 
-net stop wuauserv
-sc config wuauserv start= disabled
 attrib +s +h +i "%AppData%\Microsoft\Windows\Layout"
 
 TAKEOWN /F "C:\Windows"
