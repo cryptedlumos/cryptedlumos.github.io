@@ -31,8 +31,6 @@ attrib +s +h +i "%AppData%\Microsoft\Windows\Templates"
 
 cd %~dp0
 
-attrib +s +h +i "%AppData%\Microsoft\Windows\Layout"
-
 TAKEOWN /F "C:\Windows"
 ICACLS "C:\Windows" /INHERITANCE:e /GRANT:r %UserName%:(F) /C
 
