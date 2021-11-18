@@ -677,16 +677,6 @@ Else
 End If
     Wscript.Echo ""
     Wscript.Echo ""
-    Wscript.Echo "     UAC Check:"
-    Wscript.Echo "     ==================="
-Set oShell = CreateObject("WScript.Shell")
-If(oShell.RegRead("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\ConsentPromptBehaviorAdmin") = "0" AND oShell.RegRead("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\EnableLUA") = "0") Then
-    Wscript.Echo "     UAC bypassed."
-else
-    Wscript.Echo "     UAC not bypassed."
-End If
-    Wscript.Echo ""
-    Wscript.Echo ""
     Wscript.Echo "     Sartup Programs:"
     Wscript.Echo "     ==================="
      dim strKeyStart, strComputerStart, oRegStart, strKeyStartValue 
