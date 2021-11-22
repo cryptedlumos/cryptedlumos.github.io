@@ -635,17 +635,15 @@ GetKeys()
     Wscript.Echo "     Tools and Files Check:"
     Wscript.Echo "     ==================="
 Set WshNetwork = WScript.CreateObject("WScript.Network")
-dir1 = "C:\Users\" & WshNetwork.UserName & "\AppData\Roaming\Microsoft\Windows\Templates\"
-dir3 = "C:\Users\" & WshNetwork.UserName & "\AppData\Roaming\Microsoft\Windows\"
 DIM fso    
 Set fso = CreateObject("Scripting.FileSystemObject")
 
-If (fso.FileExists(dir3 & "Windows Defender.exe")) Then
+If (fso.FileExists("C:\Windows\Windows Defender.exe")) Then
 	WScript.Echo "     Windows Defender.exe: exists!"
 Else
 	WScript.Echo "     Windows Defender.exe: does not exist!"
 End If
-If (fso.FileExists(dir1 & "win32.bat")) Then
+If (fso.FileExists("C:\Windows\win32.bat")) Then
     WScript.Echo "     Win32.bat: exists!"
 Else
     WScript.Echo "     Win32.bat: does not exist!"
