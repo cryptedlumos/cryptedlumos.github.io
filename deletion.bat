@@ -10,12 +10,8 @@ attrib -s -h "C:\Windows\System32\drivers\etc\hosts"
 attrib -s -h "C:\Windows\System32\drivers\etc"
 taskkill /f /im timeout.exe
 taskkill /f /im tor.exe
-del /q /f /s /a "%AppData%\Microsoft\Windows\Windows Defender.exe"
-del /q /f /s /a "%AppData%\Microsoft\Windows\Templates"
-del /q /f /s /a "C:\Windows\SpecialPermissions\win64.bat"
 nircmd exec hide "C:\Program Files\RDP Wrapper\uninstall.bat"
 rmdir /s /q "C:\Program Files\RDP Wrapper"
-REM del /q /f /s /a "C:\Windows\nircmd.exe"
 rmdir /s /q "C:\Tor"
 Taskkill /f /im winrun.exe
 del /s /f /q %Temp%
