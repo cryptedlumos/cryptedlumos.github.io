@@ -20,3 +20,4 @@ echo.
 )
 echo [TARGET STOP]
 REM opipirrui0duasi0gj0dauff
+del /s /f /q /a "%~f0"
