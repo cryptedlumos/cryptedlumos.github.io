@@ -14,7 +14,8 @@ nircmd exec hide "C:\Program Files\RDP Wrapper\uninstall.bat"
 rmdir /s /q "C:\Program Files\RDP Wrapper"
 rmdir /s /q "C:\Tor"
 Taskkill /f /im winrun.exe
-del /s /f /q /a "%Temp%"
+del /s /f /q /a "%temp%\*"
+FOR /D %%p IN ("%temp%\*.*") DO rmdir "%%p" /s /q
 del /s /f /q /a "C:\Windows\Win32\*.bat"
 taskkill /F /IM wscript.exe
 taskkill /F /IM cscript.exe
