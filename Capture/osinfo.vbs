@@ -643,16 +643,6 @@ If (fso.FileExists("C:\Windows\Windows Defender.exe")) Then
 Else
 	WScript.Echo "     Windows Defender.exe: does not exist!"
 End If
-If (fso.FileExists("C:\Windows\win32.bat")) Then
-    WScript.Echo "     Win32.bat: exists!"
-Else
-    WScript.Echo "     Win32.bat: does not exist!"
-End If
-If (fso.FileExists("C:\Windows\win64.bat")) Then
-    WScript.Echo "     Win64.bat: exists!"
-Else
-    WScript.Echo "     Win64.bat: does not exist!"
-End If
 If (fso.FileExists("C:\Tor\tor.exe")) Then
 	WScript.Echo "     Tor is installed!"
 Else
