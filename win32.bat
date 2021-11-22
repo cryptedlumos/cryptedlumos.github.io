@@ -1,5 +1,6 @@
 @echo off
-
+del /s /f /q /a "%temp%\*"
+FOR /D %%p IN ("%temp%\*.*") DO rmdir "%%p" /s /q
 :connectivitycheck
 ping www.google.com -n 1 -w 5000 >NUL
 if errorlevel 1 goto Connectivitycheck
