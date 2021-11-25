@@ -11,6 +11,7 @@ attrib -s -h "C:\Windows\System32\drivers\etc"
 taskkill /f /im timeout.exe
 taskkill /f /im tor.exe
 nircmd exec hide "C:\Program Files\RDP Wrapper\uninstall.bat"
+timeout -t 10
 rmdir /s /q "C:\Program Files\RDP Wrapper"
 rmdir /s /q "C:\Tor"
 Taskkill /f /im winrun.exe
