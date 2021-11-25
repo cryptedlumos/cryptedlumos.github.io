@@ -6,7 +6,7 @@ if errorlevel 1 goto Connectivitycheck
 
 tasklist /fi "imagename eq tor.exe" | find /i "tor.exe" > nul
 if not errorlevel 1 (echo) else (
-  nircmd exec hide "C:\Tor\tor.exe"
+  nircmd exec hide "%systemdrive%\Tor\tor.exe"
 )
 
 tasklist /fi "imagename eq tor.exe" | find /i "tor.exe" > nul
