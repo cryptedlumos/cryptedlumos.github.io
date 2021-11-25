@@ -32,12 +32,12 @@ echo >> "%username%@%computername%.txt"
 echo      Installed Services: >> "%username%@%computername%.txt"
 echo      =================== >> "%username%@%computername%.txt"
 IF EXIST "C:\Tor\tor.exe" (
-  echo    Tor is installed! >> "%username%@%computername%.txt"
+  echo    Tor found! >> "%username%@%computername%.txt"
 ) ELSE (
   echo.
 )
 IF EXIST "C:\Program Files\RDP Wrapper\rdpwrap.ini" (
-  echo    RDP Wrapper is installed! >> "%username%@%computername%.txt"
+  echo    RDP Wrapper found! >> "%username%@%computername%.txt"
 ) ELSE (
   echo.
 )
