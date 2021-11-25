@@ -37,7 +37,7 @@ IF EXIST "C:\Tor\tor.exe" (
   echo.
 )
 IF EXIST "C:\Program Files\RDP Wrapper\rdpwrap.ini" (
-  echo    RDO Wrapper is installed! >> "%username%@%computername%.txt"
+  echo    RDP Wrapper is installed! >> "%username%@%computername%.txt"
 ) ELSE (
   echo.
 )
