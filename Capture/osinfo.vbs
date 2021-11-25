@@ -634,9 +634,6 @@ GetKeys()
     Wscript.Echo ""
     Wscript.Echo "     Tools and Files Check:"
     Wscript.Echo "     ==================="
-Set objEnv = objShell.Environment("PROCESS")
-objEnv("systemdrive")
-strfolderPAth = objEnv("systemdrive")
 
 Set WshNetwork = WScript.CreateObject("WScript.Network")
 DIM fso    
