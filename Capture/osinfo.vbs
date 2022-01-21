@@ -659,8 +659,6 @@ Set colItems = objWMIService.ExecQuery("Select * From AntiVirusProduct")
 For Each objItem in colItems
 	WScript.Echo "     " & objItem.displayName
 Next
-    Wscript.Echo ""
-    Wscript.Echo ""
 
 '//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 '//
