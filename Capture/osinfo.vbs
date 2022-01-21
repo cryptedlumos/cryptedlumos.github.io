@@ -661,24 +661,6 @@ For Each objItem in colItems
 Next
     Wscript.Echo ""
     Wscript.Echo ""
-    Wscript.Echo "     Hosts:"
-    Wscript.Echo "     ==================="
-set fso = createobject("scripting.filesystemobject")
-Set dict = CreateObject("Scripting.Dictionary")
-Set file = fso.OpenTextFile ("C:\Windows\System32\drivers\etc\hosts", 1)
-row = 0
-Do Until file.AtEndOfStream
-  line = file.Readline
-  dict.Add row, line
-  row = row + 1
-Loop
-
-file.Close
-
-'Loop over it
-For Each line in dict.Items
-  WScript.Echo "     " & line
-Next
 
 '//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 '//
