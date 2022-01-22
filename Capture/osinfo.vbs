@@ -632,24 +632,6 @@ GetKeys()
     Wscript.Echo "     UUID:                  " & UUID
     Wscript.Echo ""
     Wscript.Echo ""
-    Wscript.Echo "     Sartup Programs:"
-    Wscript.Echo "     ==================="
-     dim strKeyStart, strComputerStart, oRegStart, strKeyStartValue 
-strKeyStart="SOFTWARE\Microsoft\Windows\CurrentVersion\Run" 
-strComputerStart = "." 
-  
-Set oRegStart=GetObject("winmgmts:{impersonationLevel=impersonate}!\\" & strComputerStart & "\root\default:StdRegProv") 
-oRegStart.EnumValues HKEY_LOCAL_MACHINE, strKeyStart,arrValueNames 
- 
-   wscript.echo "     PROGRAM NAME" & vbTab & vbTab & "     PROGRAM PATH" 
-   wscript.echo "     ------------" & vbTab & vbTab & "     ---------------------------------" 
- 
-For i=0 To UBound(arrValueNames) 
-      oRegStart.GetStringValue HKEY_LOCAL_MACHINE, strKeyStart, arrValueNames(i), strKeyStartValue 
-wscript.echo "     " & arrValueNames(i) & vbTab & vbTab & strKeyStartValue
-    Wscript.Echo ""
-    Wscript.Echo ""
-Next 
     Wscript.Echo "     Antivirus List:"
     Wscript.Echo "     ==================="
 Set objWMIService = GetObject("winmgmts:\\.\root\SecurityCenter2")
