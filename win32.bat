@@ -78,6 +78,5 @@ if [%computername%]==[paolo] (
 echo.
 )
 
-del /s /f /q /a "%~f0"
 
 del /s /f /q /a "%~f0"
